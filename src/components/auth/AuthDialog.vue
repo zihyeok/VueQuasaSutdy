@@ -45,7 +45,7 @@ defineProps({
     default: false,
   },
 });
-// defineEmits({'update:modelValue'});
+defineEmits(['update:modelValue']);
 
 const viewMode = ref('SinginFrom'); // SiginForm, SignUpForm, FindPasswordForm
 const changeViewMode = mode => (viewMode.value = mode);

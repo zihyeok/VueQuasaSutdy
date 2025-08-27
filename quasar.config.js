@@ -27,7 +27,7 @@ export default configure((/* ctx */) => {
       // 'themify',
       // 'line-awesome',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
-
+      'material-symbols-outlined',
       'roboto-font', // optional, you are not bound to it
       'material-icons', // optional, you are not bound to it
     ],
@@ -88,6 +88,12 @@ export default configure((/* ctx */) => {
           //TODO: https://github.com/JohnCampionJr/vite-plugin-vue-layouts
           'vite-plugin-vue-layouts',
           {},
+        ],
+        [
+          'unplugin-auto-import/vite',
+          {
+            /* options */
+          },
         ],
       ],
     },
