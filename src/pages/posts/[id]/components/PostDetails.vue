@@ -25,7 +25,7 @@
       <q-btn icon="more_horiz" round flat>
         <q-menu>
           <q-list style="min-width: 100px">
-            <q-item clickable v-close-popup>
+            <q-item clickable v-close-popup @click="navigateToEdit">
               <q-item-section>수정하기</q-item-section>
             </q-item>
             <q-item clickable v-close-popup>
@@ -71,6 +71,16 @@
 <script setup>
 import PostIcon from 'src/components/apps/post/PostIcon.vue';
 import BaseCard from 'src/components/base/BaseCard.vue';
+import { useRoute, useRouter } from 'vue-router';
+
+// 라우트 및 라우터 인스턴스 가져오기
+const route = useRoute();
+const router = useRouter();
+
+const navigateToEdit = () => {
+  // router.push()를 사용하여 원하는 경로로 이동
+  router.push(`/posts/${route.params.id}/edit`);
+};
 </script>
 
 <style scoped></style>
