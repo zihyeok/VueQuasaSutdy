@@ -12,21 +12,10 @@
         <q-btn icon="close" flat round dense v-close-popup />
       </q-card-section>
       <q-card-section class="q-px-xl q-pb-xl">
-        <!-- v-if 조건부 렌더링-->
-        <!-- <SinginFrom
-          v-if="viewMode === 'SinginFrom'"
-          @change-view="changeViewMode"
-        />
-        <SignUpForm
-          v-else-if="viewMode === 'SignUpForm'"
-          @change-view="changeViewMode"
-        />
-        <FindPasswordForm v-else @change-view="changeViewMode" />
-         -->
-        <!-- 동적 컴포넌트-->
         <component
           :is="authViewComponents[viewMode]"
           @change-view="changeViewMode"
+          @close-popup="$emit('update:modelValue', false)"
         />
       </q-card-section>
     </q-card>

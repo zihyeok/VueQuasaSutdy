@@ -46,11 +46,28 @@
 
 <script setup>
 import { signInWithGoogle } from 'src/services/auth';
-defineEmits(['changeView']);
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
+const emit = defineEmits(['changeView', 'closePopup']); // 'closePopup' 추가
 
 // 로그인 (구글)
 const handleSignInGoogle = async () => {
-  await signInWithGoogle();
+  try {
+    // 팝업 로그인 실행
+    await signInWithGoogle();
+
+    // 로그인 성공 후 팝업 닫기 이벤트 발생
+    emit('closePopup');
+    console.log('여긴오잖아?');
+    // 또는 특정 페이지로 이동
+    // router.push('/main');
+
+    // 알림 표시
+  } catch (error) {
+    console.error('로그인 실패:', error);
+    // 로그인 실패 알림
+  }
 };
 </script>
 
