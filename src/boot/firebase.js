@@ -5,13 +5,13 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useAuthStore } from 'src/stores/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDPihqYMjRryjnXyYpU_G-bnKUeWBv82G4',
-  authDomain: 'jacecoding-vue3-firebase-app.firebaseapp.com',
-  projectId: 'jacecoding-vue3-firebase-app',
-  storageBucket: 'jacecoding-vue3-firebase-app.firebasestorage.app',
-  messagingSenderId: '390639709159',
-  appId: '1:390639709159:web:78a351e3d8c5d9d973eb42',
-  measurementId: 'G-PHGXS1XX8C',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_FIREBASE_APPID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID,
 };
 
 // Initialize Firebase
