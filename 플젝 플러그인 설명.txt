@@ -1,0 +1,23 @@
+## vite-plugin-vue-layouts
+ - Vite 기반 Vue 프로젝트에서 자동으로 페이지별 레이아웃을 
+ 설정하고 관리할 수 있게 해주는 플러그인
+$ npm install -D vite-plugin-vue-layouts
+
+## unplugin-auto-import/vite 설정 
+	- 함수들을 코드를 작성할 때 자동으로 import
+$ npm i -D unplugin-auto-import
+
+## firebase 설정 
+$ npm install firebase 
+ 
+$ quasar new boot firebase 
+	--boot 폴더에 firebase 파일 만들기
+	**  boot: ['firebase'],** - quasar.config.js에 코드추가 
+	
+## unplugin-vue-router/vite 
+- Vue.js 프로젝트에서 파일 기반 라우팅을 자동화하고 타입 안전성을 제공하는 Vite 플러그인
+$ npm i -D unplugin-vue-router
+
+## vite-plugin-checker
+- Vite 프로젝트에서 TypeScript, ESLint, Stylelint 등 다양한 린터 및 타입 검사 
+도구의 오류를 브라우저나 별도의 워커 스레드에서 확인해주는 Vite 플러그인
