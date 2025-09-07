@@ -32,7 +32,7 @@
     <q-separator />
     <q-card-actions align="right">
       <slot name="actions">
-        <q-btn flat label="취소하기" />
+        <q-btn flat label="취소하기" @click="closeDialog" />
         <q-btn type="submit" flat label="저장하기" color="primary" />
       </slot>
     </q-card-actions>
@@ -64,8 +64,11 @@ const emit = defineEmits([
   'update:category',
   'update:content',
   'update:tags',
+  'close',
 ]);
-
+const closeDialog = event => {
+  emit('close', event);
+};
 const titleModel = computed({
   get: () => props.title,
   set: val => emit('update:title', val),

@@ -10,7 +10,7 @@
     </div>
     <PostWriteDialog
       :model-value="postDialog"
-      @update:model-value="val => $emit((postDialog = val))"
+      @update:model-value="val => (postDialog = val)"
     />
   </q-page>
 </template>

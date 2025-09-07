@@ -14,10 +14,19 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import StickySideBar from 'src/components/StickySideBar.vue';
 import { getCategorise } from 'src/services/category';
+import { useMenuStore } from 'src/stores/menu';
+const menuStore = useMenuStore();
 
-const categories = getCategorise();
+const categories = computed(() => getCategorise(menuStore.currentType));
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'default',
+  },
+});
 </script>
 
 <style lang="scss" scoped></style>

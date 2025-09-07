@@ -24,12 +24,15 @@
   "devDependencies": {
     "@quasar/app-vite": "^2.0.0-beta.12",
     "autoprefixer": "^10.4.2",
+    "birpc": "^2.5.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-vue": "^9.0.0",
+    "hookable": "^5.5.3",
+    "perfect-debounce": "^2.0.0",
     "postcss": "^8.4.14",
     "prettier": "^3.0.3",
-    "unplugin-auto-import": "^20.0.0",
+    "unplugin-auto-import": "^20.1.0",
     "unplugin-vue-router": "^0.15.0",
     "vite-plugin-checker": "^0.7.1",
     "vite-plugin-vue-layouts": "^0.11.0"

@@ -15,7 +15,7 @@
         <component
           :is="authViewComponents[viewMode]"
           @change-view="changeViewMode"
-          @close-popup="$emit('update:modelValue', false)"
+          @close-popup="closeDialog"
         />
       </q-card-section>
     </q-card>
@@ -34,7 +34,7 @@ defineProps({
     default: false,
   },
 });
-defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue']);
 
 const viewMode = ref('SinginFrom'); // SiginForm, SignUpForm, FindPasswordForm
 const changeViewMode = mode => (viewMode.value = mode);
@@ -50,6 +50,10 @@ const authViewComponents = {
   FindPasswordForm: defineAsyncComponent(
     () => import('./FindPasswordForm.vue'),
   ),
+};
+
+const closeDialog = () => {
+  emit('update:modelValue', false);
 };
 </script>
 

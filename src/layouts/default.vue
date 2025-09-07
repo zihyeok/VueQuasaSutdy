@@ -10,6 +10,15 @@
             홍코딩 클럽
           </q-toolbar-title>
         </q-btn>
+        <q-btn flat dense @click="changeType('default')">
+          <q-toolbar-title> default </q-toolbar-title>
+        </q-btn>
+        <q-btn flat dense @click="changeType('admin')">
+          <q-toolbar-title> admin </q-toolbar-title>
+        </q-btn>
+        <q-btn flat dense @click="changeType('etc')">
+          <q-toolbar-title> etc </q-toolbar-title>
+        </q-btn>
         <q-space />
         <q-btn stretch flat label="Home" to="/home" />
         <q-btn
@@ -44,7 +53,12 @@
         />
         <q-btn v-if="authStore.isAuthenticated" round flat>
           <q-avatar>
-            <img src="https://cdn.quasar.dev/img/avatar.png" />
+            <img
+              :src="
+                authStore.user.photoURL ||
+                generateDefaultPhotoURL(authStore.user.uid)
+              "
+            />
           </q-avatar>
           <q-menu>
             <q-list style="min-width: 100px">
@@ -71,9 +85,15 @@
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useAuthStore } from 'src/stores/auth';
-import { logout } from 'src/services/auth';
-
+import { logout, generateDefaultPhotoURL } from 'src/services/auth';
+import { useMenuStore } from 'src/stores/menu';
 import AuthDialog from 'src/components/auth/AuthDialog.vue';
+
+const menuStore = useMenuStore();
+
+const changeType = type => {
+  menuStore.setType(type);
+};
 
 const authStore = useAuthStore();
 
@@ -91,3 +111,4 @@ const handleLogout = async () => {
   await logout();
 };
 </script>
+<style scoped></style>

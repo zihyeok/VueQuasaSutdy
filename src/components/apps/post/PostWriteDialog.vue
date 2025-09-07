@@ -10,6 +10,7 @@
         v-model:title="form.title"
         v-model:category="form.category"
         v-model:content="form.content"
+        @close="closeDialog"
       />
     </q-card>
   </q-dialog>
@@ -18,6 +19,8 @@
 <script setup>
 import { ref } from 'vue';
 import PostForm from './PostForm.vue';
+// emit 함수를 명시적으로 선언합니다.
+const emit = defineEmits(['update:modelValue']);
 
 const getInitialForm = () => ({
   title: '',
@@ -30,6 +33,11 @@ const form = ref(getInitialForm());
 
 const onHide = () => {
   form.value = getInitialForm();
+};
+
+// close 이벤트를 받으면 다이얼로그를 닫습니다.
+const closeDialog = () => {
+  emit('update:modelValue', false);
 };
 </script>
 
